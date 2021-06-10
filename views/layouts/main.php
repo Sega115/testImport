@@ -39,6 +39,8 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Импорт', 'url' => ['/import/']],
+            ['label' => 'История импортов', 'url' => ['/import/history']],
         ],
     ]);
     NavBar::end();
