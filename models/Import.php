@@ -11,7 +11,7 @@ use Yii;
  * @property int $id
  * @property string $date
  *
- * @property ImportItem[] $importitems
+ * @property Importitem[] $importitems
  */
 class Import extends \yii\db\ActiveRecord
 {
@@ -52,7 +52,7 @@ class Import extends \yii\db\ActiveRecord
 
     public function setImportItems(array $data) : self
     {
-        /** @var ImportItem  $datum*/
+        /** @var Importitem  $datum*/
         foreach ($data as $datum){
             $datum->link('import', $this);
         }
@@ -76,7 +76,7 @@ class Import extends \yii\db\ActiveRecord
      */
     public function getImportitems()
     {
-        return $this->hasMany(ImportItem::className(), ['importId' => 'id'])
+        return $this->hasMany(Importitem::className(), ['importId' => 'id'])
             ->inverseOf('import');
     }
 }

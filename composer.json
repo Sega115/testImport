@@ -19,7 +19,9 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "phpoffice/phpexcel": "^1.8",
-        "la-haute-societe/yii2-save-relations-behavior": "*"
+        "la-haute-societe/yii2-save-relations-behavior": "*",
+        "kartik-v/yii2-grid": "dev-master",
+        "kartik-v/yii2-export": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

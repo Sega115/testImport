@@ -58,20 +58,18 @@ class Importitem extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'city' => 'City',
-            'latitude' => 'Latitude',
-            'longitude' => 'Longitude',
-            'lighting' => 'Lighting',
-            'size' => 'Size',
-            'sideType' => 'Side Type',
-            'side' => 'Side',
-            'priceType' => 'Price Type',
-            'placementPrice' => 'Placement Price',
-            'ndsType' => 'Nds Type',
-            'period' => 'Period',
-            'impressionsPerDay' => 'Impressions Per Day',
-            'importId' => 'Import ID',
+            'city' => 'ГОРОД',
+            'latitude' => 'ШИРОТА',
+            'longitude' => 'ДОЛГОТА',
+            'lighting' => 'ОСВЕЩЕНИЕ',
+            'size' => 'ТИПОРАЗМЕР',
+            'sideType' => 'ТИП СТОРОНЫ',
+            'side' => 'СТОРОНА',
+            'priceType' => 'ВИД ЦЕНЫ',
+            'placementPrice' => 'ПРАЙС РАЗМЕЩЕНИЕ',
+            'ndsType' => 'НДС РАЗМЕЩЕНИЕ',
+            'period' => 'КВАНТ РАЗМЕЩЕНИЯ',
+            'impressionsPerDay' => 'ПОКАЗОВ В СУТКИ',
         ];
     }
 

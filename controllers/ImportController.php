@@ -6,11 +6,12 @@ namespace app\controllers;
 
 use app\models\Import;
 use app\models\ImportForm;
-use app\models\ImportItem;
+use app\models\Importitem;
 use PHPExcel;
 use PHPExcel_IOFactory;
 use PHPExcel_Worksheet;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\UploadedFile;
 
@@ -60,9 +61,9 @@ class ImportController extends Controller
         return $result;
     }
 
-    private function buildImportItem(array $data) : ImportItem
+    private function buildImportItem(array $data) : Importitem
     {
-        $model = new ImportItem();
+        $model = new Importitem();
         $model->city = $data[0];
         $model->latitude = $data[1];
         $model->longitude = $data[2];
@@ -79,9 +80,30 @@ class ImportController extends Controller
     }
 
 
-    public function actionHistory(){
-        return $this->render('importHistory', [
+    public function actionHistory() :string
+    {
+        return $this->render('history', [
             'history' => Import::find()->all()
+        ]);
+    }
+
+    public function actionItem($importID=null): string
+    {
+        $activeQuery = Importitem::find();
+        $title = 'Все импорты';
+        if ($importID){
+            $activeQuery->where('importId=:id', ['id' => $importID]);
+            /** @var  $import Import*/
+            $import = Import::find()->where('id=:id', ['id' => $importID])->limit(1)->one();
+            $title = 'Импорт от: '. $import->getDateFmt('d:m:Y H:i');
+        }
+
+        return $this->render('historyImport', [
+            'dataProvider' =>  new ActiveDataProvider([
+                'query' => $activeQuery
+            ]),
+            'title' => $title,
+
         ]);
     }
 

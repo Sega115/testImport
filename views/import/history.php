@@ -12,9 +12,7 @@ use yii\bootstrap\Html; ?>
         <ul class="list-group">
             <?foreach ($history as $import):?>
                 <li class="list-group-item">
-                    <a href="#">
-                        <?= $import->getDateFmt('d.m.Y H:i') ?>
-                    </a>
+                    <?=Html::a($import->getDateFmt('d.m.Y H:i') , ['/import/item', 'importID' => $import->id]) ?>
                 </li>
             <?endforeach;?>
         </ul>
